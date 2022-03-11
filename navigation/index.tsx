@@ -5,7 +5,7 @@
  */
 import { View } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import {
   NavigationContainer,
   DefaultTheme,
@@ -52,36 +52,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Root"
-        component={BottomTabNavigator}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="NotFound"
-        component={NotFoundScreen}
-        options={{ title: "Oops!" }}
-      />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
-    </Stack.Navigator>
-  );
-}
-
-/**
- * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
- * https://reactnavigation.org/docs/bottom-tab-navigator
- */
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
-
-function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <BottomTab.Navigator
-      initialRouteName="TabOne"
+    <Stack.Navigator
       screenOptions={{
         headerStyle: {
           backgroundColor: Colors.light.tint,
@@ -92,12 +63,11 @@ function BottomTabNavigator() {
         },
       }}
     >
-      <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "JABBER",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+      <Stack.Screen
+        name="Root"
+        component={MainTabNavigator}
+        options={{
+          title: "Jabber",
           headerRight: () => (
             <View
               style={{
@@ -111,17 +81,42 @@ function BottomTabNavigator() {
               <AntDesign name="bars" size={20} color="white" />
             </View>
           ),
+        }}
+      />
+
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen name="Modal" component={ModalScreen} />
+      </Stack.Group>
+    </Stack.Navigator>
+  );
+}
+
+/**
+ * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
+ * https://reactnavigation.org/docs/bottom-tab-navigator
+ */
+const MainTab = createMaterialTopTabNavigator<RootTabParamList>();
+
+function MainTabNavigator() {
+  const colorScheme = useColorScheme();
+
+  return (
+    <MainTab.Navigator initialRouteName="TabOne">
+      <MainTab.Screen
+        name="TabOne"
+        component={TabOneScreen}
+        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
+          title: "Home",
         })}
       />
-      <BottomTab.Screen
+      <MainTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Call",
         }}
       />
-    </BottomTab.Navigator>
+    </MainTab.Navigator>
   );
 }
 
