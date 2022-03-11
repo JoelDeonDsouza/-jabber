@@ -14,6 +14,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
+import { Octicons, AntDesign } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -95,13 +96,21 @@ function BottomTabNavigator() {
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Jabber",
+          title: "JABBER",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
-          <View>
-             
-          </View>
-          )
+            <View
+              style={{
+                flexDirection: "row",
+                width: 60,
+                justifyContent: "space-between",
+                marginRight: 10,
+              }}
+            >
+              <Octicons name="search" size={20} color="white" />
+              <AntDesign name="bars" size={20} color="white" />
+            </View>
+          ),
         })}
       />
       <BottomTab.Screen
