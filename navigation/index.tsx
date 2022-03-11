@@ -97,7 +97,11 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Jabber",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => <View></View>,
+          headerRight: () => (
+          <View>
+             
+          </View>
+          )
         })}
       />
       <BottomTab.Screen
