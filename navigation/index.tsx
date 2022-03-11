@@ -15,6 +15,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
 import { Octicons, AntDesign } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -28,6 +29,7 @@ import {
   RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import { color } from "react-native-reanimated";
 
 export default function Navigation({
   colorScheme,
@@ -101,21 +103,21 @@ function MainTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
-    <MainTab.Navigator initialRouteName="TabOne">
+    <MainTab.Navigator initialRouteName="Chats">
       <MainTab.Screen
-        name="TabOne"
+        name="Camera"
         component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Home",
-        })}
-      />
-      <MainTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
         options={{
-          title: "Call",
+          title: "Camera",
+          tabBarIcon: ({ color }) => (
+            <Fontisto name="camera" color={color} size={20.5} />
+          ),
+          tabBarLabel: () => null,
         }}
       />
+      <MainTab.Screen name="Chats" component={TabTwoScreen} />
+      <MainTab.Screen name="Status" component={TabTwoScreen} />
+      <MainTab.Screen name="Calls" component={TabTwoScreen} />
     </MainTab.Navigator>
   );
 }
