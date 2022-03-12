@@ -22,11 +22,12 @@ import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import ChatScreen from "../screens/chatScreen";
+import ChatRoomScreen from "../screens/chatRoomScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
   RootTabParamList,
-  RootTabScreenProps,
+  // RootTabScreenProps,
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { color } from "react-native-reanimated";
@@ -85,10 +86,11 @@ function RootNavigator() {
           ),
         }}
       />
-
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
+      <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoomScreen}
+        options={{ title: "Chat Room" }}
+      />
     </Stack.Navigator>
   );
 }
