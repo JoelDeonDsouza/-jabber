@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     padding: 10,
+    // borderBottomColor: "#F9F9F9",
+    // borderBottomWidth: 0.2,
+    // borderRadius: 50,
   },
   leftContainer: {
     flexDirection: "row",
