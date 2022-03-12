@@ -5,9 +5,6 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
-  text: {
-    color: "white",
-  },
 });
 
 export default styles;

@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/typescript/
  */
 
-import { MainTabScreenProps } from "@react-navigation/bottom-tabs";
+// import { MainTabScreenProps } from "@react-navigation/bottom-tabs";
 import {
   CompositeScreenProps,
   NavigatorScreenParams,
@@ -33,12 +33,12 @@ export type RootTabParamList = {
   Calls: undefined;
 };
 
-export type RootTabScreenProps<
-  Screen extends keyof RootTabParamList
-> = CompositeScreenProps<
-  MainTabScreenProps<RootTabParamList, Screen>,
-  NativeStackScreenProps<RootStackParamList>
->;
+// export type RootTabScreenProps<
+//   Screen extends keyof RootTabParamList
+// > = CompositeScreenProps<
+//   MainTabScreenProps<RootTabParamList, Screen>,
+//   NativeStackScreenProps<RootStackParamList>
+// >;
 
 export type User = {
   id: String;
@@ -47,11 +47,11 @@ export type User = {
 };
 export type Message = {
   id: String;
-  content: Message;
+  content: String;
   createdAt: String;
 };
 export type ChatRoom = {
   id: String;
   users: [User];
-  lastMessage: Message;
+  lastMessage: String;
 };

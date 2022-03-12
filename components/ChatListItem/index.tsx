@@ -9,12 +9,17 @@ export type ChatListItemProps = {
 
 const ChatListItem = (props: ChatListItemProps) => {
   const { chatRoom } = props;
-  const user = chatRoom.users[0];
+  const user = chatRoom.users[1];
+  console.log();
   return (
-    <View>
-      <Image style={styles.avatar} source={{ uri: user.imageUri }} />
-      <Text>{user.name}</Text>
-      <Text>{chatRoom.lastMessage.content}</Text>
+    <View style={styles.container}>
+      <View style={styles.leftContainer}>
+        <Image style={styles.avatar} source={{ uri: user.imageUri }} />
+        <View style={styles.midContainer}>
+          <Text style={styles.userName}>{user.name}</Text>
+          <Text>{chatRoom.lastMessage.content}</Text>
+        </View>
+      </View>
       <Text>{chatRoom.lastMessage.createdAt}</Text>
     </View>
   );
