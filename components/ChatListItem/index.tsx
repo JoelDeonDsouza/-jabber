@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
+import moment from "moment";
 import { ChatRoom } from "../../types";
 import styles from "./style";
 
@@ -16,11 +17,14 @@ const ChatListItem = (props: ChatListItemProps) => {
         <Image style={styles.avatar} source={{ uri: user.imageUri }} />
         <View style={styles.midContainer}>
           <Text style={styles.userName}>{user.name}</Text>
-          <Text style={styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
+          <Text numberOfLines={1} style={styles.lastMessage}>
+            {chatRoom.lastMessage.content}
+          </Text>
         </View>
       </View>
-      {/* <Text>{chatRoom.lastMessage.createdAt}</Text> */}
-      <Text style={styles.time}>Today</Text>
+      <Text style={styles.time}>
+        {moment(chatRoom.lastMessage.createdAt).format("DD/MM/LT")}
+      </Text>
     </View>
   );
 };

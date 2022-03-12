@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     color: "#93B5C6",
   },
   time: {
-    fontSize: 14,
+    fontSize: 12,
     color: "#93B5C6",
   },
 });
