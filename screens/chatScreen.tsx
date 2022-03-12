@@ -5,13 +5,12 @@ import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import ChatListItem from "../components/ChatListItem";
 import Colors from "../constants/Colors";
-
+import chatRoom from "../data/ChatRoom";
 export default function ChatsScreen() {
   return (
     <View style={styles.container}>
       <ChatListItem
-        style={styles.TextDesign}
-        chatRoom={{ lastMessage: { content: "Joel ?" } }}
+        chatRoom={chatRoom}
         //example data//
       />
     </View>
@@ -23,6 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#fff",
   },
   TextDesign: {
     color: Colors.dark.text,
