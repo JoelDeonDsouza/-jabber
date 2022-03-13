@@ -4,7 +4,7 @@
  *
  */
 import { View } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import {
   NavigationContainer,
@@ -89,7 +89,23 @@ function RootNavigator() {
       <Stack.Screen
         name="ChatRoom"
         component={ChatRoomScreen}
-        options={{ title: "Chat Room" }}
+        options={({ route }) => ({
+          title: route.params.name,
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                width: 100,
+                justifyContent: "space-between",
+                marginRight: 10,
+              }}
+            >
+              <MaterialIcons name="call" size={21} color={"white"} />
+              <FontAwesome5 name="video" size={18} color="white" />
+              <AntDesign name="bars" size={20} color="white" />
+            </View>
+          ),
+        })}
       />
     </Stack.Navigator>
   );

@@ -15,7 +15,7 @@ const ChatListItem = (props: ChatListItemProps) => {
   const user = chatRoom.users[1];
   const onClick = () => {
     // console.log(`Clicked ${user.name}`);
-    navigation.navigate("ChatRoom", { id: chatRoom.id });
+    navigation.navigate("ChatRoom", { id: chatRoom.id, name: user.name });
   };
   return (
     <TouchableWithoutFeedback onPress={onClick}>
