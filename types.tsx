@@ -48,11 +48,12 @@ export type User = {
 };
 export type Message = {
   id: String;
+  user: User;
   content: String;
   createdAt: String;
 };
 export type ChatRoom = {
   id: String;
-  users: [User];
+  users: User[];
   lastMessage: String;
 };
