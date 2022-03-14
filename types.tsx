@@ -21,6 +21,7 @@ export type RootStackParamList = {
   Modal: undefined;
   NotFound: undefined;
   ChatRoom: undefined;
+  Contacts: undefined;
 };
 
 export type RootStackScreenProps<
@@ -45,6 +46,7 @@ export type User = {
   id: String;
   imageUri: String;
   name: String;
+  status: String;
 };
 export type Message = {
   id: String;

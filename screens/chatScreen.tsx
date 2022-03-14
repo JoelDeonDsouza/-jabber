@@ -6,6 +6,7 @@ import { Text, View } from "../components/Themed";
 import ChatListItem from "../components/ChatListItem";
 import Colors from "../constants/Colors";
 import chatRoom from "../data/ChatRoom";
+import NewMessageBTN from "../components/NewMessageBTN";
 export default function ChatsScreen() {
   return (
     <View style={styles.container}>
@@ -16,6 +17,7 @@ export default function ChatsScreen() {
           <ChatListItem chatRoom={item} keyExtractor={(item) => item.id} />
         )}
       />
+      <NewMessageBTN />
     </View>
   );
 }

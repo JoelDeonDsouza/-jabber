@@ -23,6 +23,7 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import ChatScreen from "../screens/chatScreen";
 import ChatRoomScreen from "../screens/chatRoomScreen";
+import ContactScreen from "../screens/contactScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
@@ -107,6 +108,7 @@ function RootNavigator() {
           ),
         })}
       />
+      <Stack.Screen name="Contacts" component={ContactScreen} />
     </Stack.Navigator>
   );
 }
