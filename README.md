@@ -14,7 +14,7 @@ Jabber is a chat app built with TypeScript, React-Native.
 
 ## Available Scripts
 
-Expo, TypeScript React native, React.
+Expo, TypeScript React native, React, JavaScript.
 
 ## Clone and git install
 
